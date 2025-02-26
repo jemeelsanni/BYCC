@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+.jost-font {
+  font-family: "Jost", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.lato-thin {
+  font-family: "Lato", serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.lato-light {
+  font-family: "Lato", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.lato-regular {
+  font-family: "Lato", serif;
+  font-weight: 400;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 21.28px;
+}
+
+.lato-bold {
+  font-family: "Lato", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.lato-black {
+  font-family: "Lato", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.josefin-sans-font {
+  font-family: "Josefin Sans", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.manrope-font {
+  font-family: "Manrope", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.inter-font {
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
