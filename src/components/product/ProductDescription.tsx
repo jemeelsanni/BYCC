@@ -2,8 +2,8 @@ import React from 'react'
 
 const ProductDescription: React.FC = () => {
     return (
-        <div className='border-[#F1EEEE] border shadow-lg rounded-lg p-9 mt-[65px] manrope-font'>
-            <div className='mb-4 font-bold text-[26px]'>
+        <div className='border-[#F1EEEE] border shadow-lg rounded-lg p-4 md:p-9 mt-8 md:mt-[65px] manrope-font'>
+            <div className='mb-4 font-bold text-[20px] md:text-[26px]'>
                 <h3>Product Description</h3>
             </div>
             <div className='w-full border-b border-[#F1EEEE] mb-[24px]'></div>

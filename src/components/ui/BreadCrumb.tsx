@@ -7,7 +7,7 @@ const Breadcrumb: React.FC = () => {
     const pathnames = location.pathname.split("/").filter((x) => x);
 
     return (
-        <nav className="text-[#000000] text-[12px] manrope-font mx-24">
+        <nav className="text-[#000000] text-[12px] manrope-font mx-8 md:mx-24">
             <Link to="/" className="hover:underline">Home</Link>
             {pathnames.map((name, index) => {
                 const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;

@@ -2,7 +2,7 @@ import React from 'react'
 
 const ContactForm: React.FC = () => {
     return (
-        <div className='my-24 w-[50%]'>
+        <div className='my-24 w-full md:w-[50%]'>
             <div>
                 <h4 className='jost-font font-bold text-5xl'>Drop a Message</h4>
             </div>

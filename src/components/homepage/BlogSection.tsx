@@ -1,12 +1,12 @@
 import React from 'react'
 import { BlogCard } from '../blog';
-import { ArrivalsView } from '../ui/button';
+import { ArrivalsView } from '../ui/Button';
 
 const BlogSection: React.FC = () => {
     return (
-        <div className="mt-[96px]">
+        <div className="mt-16 md:mt-[96px] mx-8 md:mx-0">
             <div className="text-center">
-                <h3 className="font-bold jost-font text-[39px] capitalize">BYC AFRICA Blog News</h3>
+                <h3 className="font-bold jost-font text-[28px] md:text-[39px] capitalize">BYC AFRICA Blog News</h3>
             </div>
             <div>
                 <BlogCard />

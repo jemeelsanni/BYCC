@@ -4,9 +4,9 @@ import { Arrow, Mail, Phone, Facebook, Instagram, Twitter, YouTube } from '../..
 
 const Footer: React.FC = () => {
     return (
-        <div className=' bg-[#212121] px-[156px] pt-[80px] pb-[40px] text-white mt-[96px]'>
-            <div className='flex justify-between mr-9'>
-                <div className='flex gap-[92px]'>
+        <div className='w-full bg-[#212121] px-8 md:px-[156px] pt-10 md:pt-[80px] pb-[40px] text-white mt-12 md:mt-[96px]'>
+            <div className='flex flex-col md:flex-row justify-between mr-9'>
+                <div className='flex flex-col md:flex-row gap-10 md:gap-[92px]'>
                     <div className='jost-font flex flex-col gap-4'>
                         <h3 className=' capitalize font-bold text-[16px] '>company info</h3>
                         <div className=' capitalize font-normal text-[12px] flex flex-col gap-4'>
@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
                 </div>
                 <div className=' flex flex-col gap-[36.54px]'>
                     <div className='jost-font flex flex-col gap-4'>
-                        <h3 className='capitalize font-bold text-[16px]'>signup for the latest news</h3>
+                        <h3 className='capitalize font-bold mt-4 md:mt-0 text-[16px]'>signup for the latest news</h3>
                         <form action="" className='border border-white w-[272.67px] flex justify-between items-center p-2 font-normal text-[12px]'>
                             <input type="email" placeholder='antonie@gmail.com' className='outline-none bg-transparent w-full mr-4 ' />
                             <button>
@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex items-center justify-center gap-6 mt-10'>
+            <div className='flex items-center justify-center gap-2 md:gap-6 mt-10'>
                 <a href="/">
                     <img src={Facebook} alt="" />
                 </a>

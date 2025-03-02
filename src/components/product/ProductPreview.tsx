@@ -27,25 +27,25 @@ const ProductPreview: React.FC = () => {
     };
 
     return (
-        <div className="mt-24 mx-24">
-            <div className='flex gap-[123px] border-[#F1EEEE] border shadow-lg rounded-lg p-8 '>
+        <div className="mt-8 md:mt-24 mx-4 md:mx-24">
+            <div className='flex flex-col md:flex-row gap-8 md:gap-[123px] border-[#F1EEEE] border shadow-lg rounded-lg p-4 md:p-8 '>
                 <div>
                     <ProductCarousel />
                 </div>
                 <div className='manrope-font'>
                     <div>
-                        <h3 className='font-bold text-[26px] text-[#000]'>MEN BOXERS <br />
+                        <h3 className='font-bold text-[20px] md:text-[26px] text-[#000]'>MEN BOXERS <br className='hidden md:block' />
                             BYC 1166</h3>
-                        <p className='text-[20px] font-normal mt-[18px]'>100% Cotton 12 Pieces Of Mens Boxer </p>
+                        <p className='text-[18px] md:text-[20px] font-normal mt-2 md:mt-[18px]'>100% Cotton 12 Pieces Of Mens Boxer </p>
                     </div>
-                    <div className='mt-[18px]'>
+                    <div className='mt-2 md:mt-[18px]'>
                         <img src={Starp} alt="" />
                     </div>
-                    <div className=" border-[#F1EEEE] border-b-2 w-[657px] mt-[10px]"></div>
+                    <div className=" border-[#F1EEEE] border-b-2 w-full md:w-[657px] mt-[10px]"></div>
                     <div className='mt-[24px]'>
-                        <h3 className='font-bold text-[30px] text-[#000]'>₦2,800.00</h3>
+                        <h3 className='font-bold text-[26px] md:text-[30px] text-[#000]'>₦2,800.00</h3>
                     </div>
-                    <div className='flex gap-8 mt-[33px]'>
+                    <div className='flex flex-col md:flex-row gap-8 mt-5 md:mt-[33px]'>
                         <div>
                             <div>
                                 <h1 className=' font-semibold text-[20px]'>Available Sizes</h1>
@@ -77,7 +77,7 @@ const ProductPreview: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='flex gap-8 items-center mt-[34px]'>
+                    <div className='flex flex-col md:flex-row gap-8 items-start md:items-center mt-[34px]'>
                         <div className='flex items-center'>
                             <button onClick={handleDecrease} className='cursor-pointer'>
                                 <img src={Decrease} alt="" />
@@ -97,7 +97,7 @@ const ProductPreview: React.FC = () => {
                         </button>
                     </div>
                     <div className='mt-[24px]'>
-                        <button className='bg-[#BD3A3A] rounded-[10px] flex items-center gap-5 pl-[55px] py-[10px] w-[452px] cursor-pointer'>
+                        <button className='bg-[#BD3A3A] rounded-[10px] flex items-center gap-5 pl-[55px] py-[10px] w-full md:w-[452px] cursor-pointer'>
                             <img src={AddCart} alt="" />
                             <p className='manrope-font font-normal text-[16px] text-[#ffffff]'>Add to Cart</p>
                         </button>

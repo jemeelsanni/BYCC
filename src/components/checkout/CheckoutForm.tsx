@@ -5,7 +5,7 @@ const CheckoutForm: React.FC = () => {
         <div>
             <div className='mb-4'><h3 className=' manrope-font font-bold text-[27px] mr-[82px]'>SHIPPING ADDRESS</h3></div>
             <div className='w-full border-b-2 border-[#F1EEEE] mb-[24px]'></div>
-            <form action="" className='manrope-font mr-[82px]'>
+            <form action="" className='manrope-font mr-0 md:mr-[82px]'>
                 <div className='font-normal text-[16px]'>
                     <label htmlFor="">Full Name</label>
                     <input type="text" className='w-full outline-none border border-[#BD3A3A] px-2 py-4 rounded-[10px]' />

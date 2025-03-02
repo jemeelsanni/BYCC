@@ -6,7 +6,7 @@ const productImages = [
     BlueBoxers,
     RedBoxers,
     BlueBoxers,
-    RedBoxers
+
 ];
 
 const ProductImageCarousel: React.FC = () => {
@@ -26,7 +26,7 @@ const ProductImageCarousel: React.FC = () => {
     return (
         <div className="">
             {/* Main Image */}
-            <div className="w-[416px] h-[349px]">
+            <div className="w-[342px] md:w-[416px] h-[349px]">
                 <img
                     src={productImages[currentImage]}
                     alt={`Product view ${currentImage + 1}`}

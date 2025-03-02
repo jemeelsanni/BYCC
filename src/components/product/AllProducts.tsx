@@ -12,8 +12,8 @@ const AllProducts: React.FC = () => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
-        <div className="mt-24 mx-24">
-            <div className=" border-[#F1EEEE] border shadow-lg rounded-lg p-8 ">
+        <div className="mt-8 md:mt-24 mx-4 md:mx-24">
+            <div className=" border-[#F1EEEE] border shadow-lg rounded-lg p-5 md:p-8 ">
                 <div className="flex justify-between items-center mb-4">
                     <p className="manrope-font font-bold text-[20px]">All Products</p>
                     <div>
@@ -69,7 +69,7 @@ const AllProducts: React.FC = () => {
                         </Link>
                     ))}
                 </div>
-                <div className="flex justify-center mt-32 mb-24">
+                <div className="flex justify-center mt-10 md:mt-32 mb-8 md:mb-24">
                     <Pagination />
                 </div>
             </div>

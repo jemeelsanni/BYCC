@@ -20,33 +20,35 @@ const ProductReview: React.FC = () => {
         },
     ]
     return (
-        <div className='border-[#F1EEEE] border shadow-lg rounded-lg p-9 mt-[65px]'>
-            <div className='mb-20 manrope-font'>
-                <div className='mb-4 font-bold text-[26px]'>
+        <div className='border-[#F1EEEE] border shadow-lg rounded-lg p-4 md:p-9 mt-8 md:mt-[65px]'>
+            <div className='mb-8 md:mb-20 manrope-font'>
+                <div className='mb-4 font-bold text-[20px] md:text-[26px]'>
                     <h3>Customer Reviews</h3>
                 </div>
                 <div className='w-full border-b border-[#F1EEEE] mb-[25px]'></div>
-                <div className='font-normal text-[20px]'>
+                <div className='font-normal text-[18px] md:text-[20px]'>
                     <p>PRODUCT RATINGS (1129)</p>
                 </div>
-                <div className='flex items-center'>
+                <div className='flex flex-col md:flex-row mt-5 items-center'>
                     <div>
                         <img src={RatingFrame} alt="" />
                     </div>
-                    <div className='ml-[56px]'>
-                        <img src={RatingCol} alt="" />
-                    </div>
-                    <div className='ml-[24.32px]'>
-                        <img src={RatingNum} alt="" />
-                    </div>
-                    <div className='ml-[45.32px]'>
-                        <img src={RatingBar} alt="" />
+                    <div className='flex items-center'>
+                        <div className='ml-0 md:ml-[56px]'>
+                            <img src={RatingCol} alt="" />
+                        </div>
+                        <div className='ml-[24.32px]'>
+                            <img src={RatingNum} alt="" />
+                        </div>
+                        <div className='ml-[45.32px]'>
+                            <img src={RatingBar} alt="" />
+                        </div>
                     </div>
                 </div>
             </div>
             <div className='manrope-font'>
                 <div className='flex justify-between mb-2'>
-                    <p className=' font-normal text-[20px]'>PRODUCT REVIEWS (438)</p>
+                    <p className=' font-normal text-[18px] md:text-[20px]'>PRODUCT REVIEWS (438)</p>
                     <div className='flex items-center gap-[13px]'>
                         <p className='jost-font text-[#BD3A3A] font-medium text-[18px]'>See all</p>
                         <img src={ArrowRightRed} alt="" className='w-[18px] h-[18px]' />
