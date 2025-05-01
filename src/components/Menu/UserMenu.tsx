@@ -4,7 +4,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { User } from '../../assets/icons'
 import { Link, useNavigate } from 'react-router-dom'
 import { Separator } from '../ui/separator'
-import { Button } from '../ui/button'
+import { Button } from '@/components/ui/button'
 
 
 
