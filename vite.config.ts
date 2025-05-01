@@ -1,5 +1,5 @@
 import { defineConfig, loadEnv } from 'vite';
-import react from '@vitejs/plugin-react';
+import reactPlugin from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
 
@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
   return {
     base: baseUrl,
     plugins: [
-      react({
+      reactPlugin({
         jsxImportSource: '@emotion/react',
         babel: {
           plugins: ['@emotion/babel-plugin'],
