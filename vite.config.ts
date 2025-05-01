@@ -6,13 +6,11 @@ import path from 'path';
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   
-  // Enhanced environment variable handling
-  const apiUrl = env.VITE_API_URL || 
-    (mode === 'development' 
-      ? 'http://localhost:3002' 
-      : 'https://byc-backend-tt0z.onrender.com');
+  const isProduction = mode === 'production';
+  const baseUrl = env.VITE_BASE_URL || '/';
 
   return {
+    base: baseUrl,
     plugins: [
       react({
         jsxImportSource: '@emotion/react',
@@ -23,49 +21,57 @@ export default defineConfig(({ mode }) => {
       tailwindcss(),
     ],
     resolve: {
-      alias: [
-        {
-          find: '@',
-          replacement: path.resolve(__dirname, 'src'),
-        },
-        // Add other aliases as needed
-      ],
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+        '@components': path.resolve(__dirname, './src/components'),
+        '@assets': path.resolve(__dirname, './src/assets'),
+      },
     },
     server: {
       port: 5173,
       strictPort: true,
+      host: true,
       proxy: {
         '/api': {
-          target: apiUrl,
+          target: env.VITE_API_URL || 'http://localhost:3002',
           changeOrigin: true,
-          secure: false,
           rewrite: (path) => path.replace(/^\/api/, ''),
-          configure: (proxy) => {
-            proxy.on('error', (err) => {
-              console.error('Proxy error:', err);
-            });
-          },
         },
       },
     },
     build: {
       outDir: 'dist',
       emptyOutDir: true,
-      sourcemap: mode !== 'production',
-      chunkSizeWarningLimit: 2000,
+      sourcemap: !isProduction,
+      chunkSizeWarningLimit: 1600,
       rollupOptions: {
         output: {
-          manualChunks: {
-            react: ['react', 'react-dom'],
-            vendor: ['lodash', 'axios'],
-            ui: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
+          manualChunks: (id) => {
+            if (id.includes('node_modules')) {
+              if (id.includes('@radix-ui')) {
+                return 'radix';
+              }
+              if (id.includes('react')) {
+                return 'react-vendor';
+              }
+              return 'vendor';
+            }
           },
         },
       },
     },
-    base: env.VITE_BASE_URL || '/',
     optimizeDeps: {
-      include: ['@emotion/react', '@emotion/styled'],
+      include: [
+        '@emotion/react',
+        '@emotion/styled',
+        '@radix-ui/react-dialog',
+        '@radix-ui/react-dropdown-menu'
+      ],
+      exclude: ['js-big-decimal'],
+    },
+    define: {
+      'process.env': process.env,
+      __APP_ENV__: JSON.stringify(env.APP_ENV),
     },
   };
 });
