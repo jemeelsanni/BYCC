@@ -20,12 +20,26 @@ interface AnalyticsChartProps {
     ordersByStatus: OrderStatusData[];
 }
 
-const AnalyticsChart: React.FC<AnalyticsChartProps> = ({
-    data,
-    period,
-    ordersByStatus
-}) => {
-    const COLORS = ['#BD3A3A', '#8884d8', '#82ca9d', '#ffc658', '#ff7300'];
+const COLORS = ['#BD3A3A', '#8884d8', '#82ca9d', '#ffc658', '#ff7300'];
+
+const AnalyticsChart: React.FC<AnalyticsChartProps> = ({ data, period, ordersByStatus }) => {
+    const renderCustomizedLabel = ({
+        name,
+        percent
+    }: {
+        name: string;
+        percent: number;
+    }) => {
+        const displayName = window.innerWidth < 768 && name.length > 6
+            ? `${name.substring(0, 6)}...`
+            : name;
+        return `${displayName} ${(percent * 100).toFixed(0)}%`;
+    };
+
+    const formatTooltipValue = (value: number, name: string) => {
+        if (name === "Revenue") return formatPrice(value);
+        return value;
+    };
 
     return (
         <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 mb-8">
@@ -60,7 +74,7 @@ const AnalyticsChart: React.FC<AnalyticsChartProps> = ({
                                 stroke="#BD3A3A"
                                 width={50}
                                 tick={{ fontSize: 10 }}
-                                tickFormatter={(value) => value >= 1000 ? `${(value / 1000).toFixed(0)}k` : value}
+                                tickFormatter={(value) => value >= 1000 ? `${(value / 1000).toFixed(0)}k` : value.toString()}
                             />
                             <YAxis
                                 yAxisId="right"
@@ -68,17 +82,20 @@ const AnalyticsChart: React.FC<AnalyticsChartProps> = ({
                                 stroke="#8884d8"
                                 width={40}
                                 tick={{ fontSize: 10 }}
-                                tickFormatter={(value) => value >= 1000 ? `${(value / 1000).toFixed(0)}k` : value}
+                                tickFormatter={(value) => value >= 1000 ? `${(value / 1000).toFixed(0)}k` : value.toString()}
                             />
                             <Tooltip
-                                formatter={(value: number, name: string) => {
-                                    if (name === "Revenue") return formatPrice(value);
-                                    return value;
-                                }}
+                                formatter={formatTooltipValue}
                                 contentStyle={{ fontSize: '12px' }}
                                 itemStyle={{ padding: '2px 0' }}
                             />
-                            <Legend iconSize={8} wrapperStyle={{ fontSize: '12px', paddingTop: '10px' }} />
+                            <Legend
+                                iconSize={8}
+                                wrapperStyle={{
+                                    fontSize: '12px',
+                                    paddingTop: '10px'
+                                }}
+                            />
                             <Line
                                 yAxisId="left"
                                 type="monotone"
@@ -105,7 +122,9 @@ const AnalyticsChart: React.FC<AnalyticsChartProps> = ({
 
             {/* Order Status Pie Chart */}
             <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 order-2">
-                <h2 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">Orders by Status</h2>
+                <h2 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">
+                    Orders by Status
+                </h2>
                 <div className="h-64 sm:h-72 md:h-80">
                     {ordersByStatus.length > 0 ? (
                         <ResponsiveContainer width="100%" height="100%">
@@ -117,16 +136,10 @@ const AnalyticsChart: React.FC<AnalyticsChartProps> = ({
                                     paddingAngle={5}
                                     dataKey="value"
                                     nameKey="name"
-                                    label={({ name, percent }) => {
-                                        // On small screens, show shorter labels
-                                        const displayName = window.innerWidth < 768 && name.length > 6
-                                            ? `${name.substring(0, 6)}...`
-                                            : name;
-                                        return `${displayName} ${(percent * 100).toFixed(0)}%`;
-                                    }}
+                                    label={renderCustomizedLabel}
                                     labelLine={false}
                                 >
-                                    {ordersByStatus.map((entry, index) => (
+                                    {ordersByStatus.map((_, index) => (
                                         <Cell
                                             key={`cell-${index}`}
                                             fill={COLORS[index % COLORS.length]}
@@ -143,13 +156,18 @@ const AnalyticsChart: React.FC<AnalyticsChartProps> = ({
                                     verticalAlign="bottom"
                                     align="center"
                                     iconSize={8}
-                                    wrapperStyle={{ fontSize: '10px', paddingTop: '10px' }}
+                                    wrapperStyle={{
+                                        fontSize: '10px',
+                                        paddingTop: '10px'
+                                    }}
                                 />
                             </PieChart>
                         </ResponsiveContainer>
                     ) : (
                         <div className="h-full flex items-center justify-center">
-                            <p className="text-gray-500 text-sm sm:text-base">No order data available</p>
+                            <p className="text-gray-500 text-sm sm:text-base">
+                                No order data available
+                            </p>
                         </div>
                     )}
                 </div>

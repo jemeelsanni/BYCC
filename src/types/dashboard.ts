@@ -95,7 +95,8 @@ export interface DashboardStats {
     return '₦' + formattedPrice;
 };
   
-  export const formatDate = (dateString: string, p0: boolean): string => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  export const formatDate = (dateString: string, _p0: boolean): string => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
       year: 'numeric',

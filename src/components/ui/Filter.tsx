@@ -9,9 +9,8 @@ interface FilterCategoryProps {
 
 export const FilterCategory: React.FC<FilterCategoryProps> = ({
     activeCategory,
-    activeProductType,
     onCategoryChange,
-    onProductTypeChange
+
 }) => {
     return (
         <div className='flex flex-col items-center jost-font'>

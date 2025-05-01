@@ -13,7 +13,12 @@ import {
     ShoppingCart
 } from 'lucide-react';
 
-const MobileNav = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+interface MobileNavProps {
+    isOpen: boolean;
+    onClose: () => void;
+}
+
+const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
     const location = useLocation();
     const [cartCount, setCartCount] = useState(0);
     const [wishlistCount, setWishlistCount] = useState(0);

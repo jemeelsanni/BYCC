@@ -21,7 +21,6 @@ const UserMenu: React.FC = () => {
         <DropdownMenu>
             <DropdownMenuTrigger className='flex items-end font-bold gap-2 lato-regular cursor-pointer'>
                 <img src={User} alt="user" />
-
                 <p>Hi, {user?.firstName}</p>
             </DropdownMenuTrigger>
             <DropdownMenuContent className='flex flex-col items-center lato-regular mt-4'>

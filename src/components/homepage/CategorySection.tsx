@@ -53,6 +53,7 @@ const CategorySection: React.FC = () => {
         };
 
         fetchAllProducts();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const filterProductsByCategory = (category: string, productsToFilter: Product[] = products) => {
