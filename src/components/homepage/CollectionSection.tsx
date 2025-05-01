@@ -1,36 +1,64 @@
-import React from 'react'
-import { ExploreCollectionButton, ArrivalsView } from '../ui/Button'
-import { MenCollection, WomenCollection, BabyCollection } from '../../assets/images'
+import React from 'react';
+import { ExploreCollectionButton, ArrivalsView } from '../ui/Buttons';
+import { MenCollection, WomenCollection, BabyCollection } from '../../assets/images';
 
 const CollectionSection: React.FC = () => {
     return (
-        <div className='grid place-items-center mx-8 md:mx-0 mt-16 md:mt-[96px]'>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-center'>
-                <div className='w-auto md:w-[675.56px] h-auto md:h-[658.12px] bg-[#F1F1F1] pr-10 md:pr-0 pl-10 md:pl-[88px] py-10 md:py-auto flex items-center justify-start'>
-                    <div className='jost-font '>
-                        <h2 className=' font-bold text-[28px] md:text-[33.52px] text-[#616161]'>BYC Collection 2021</h2>
-                        <h4 className=' font-bold text-[40px] md:text-[52.43px]'>BYC Collection</h4>
-                        <p className='lato-regular text-[13.75px] text-[#424242]'>The best everyday option in a Super Saver range within a <br /> reasonable price. It is our responsibility to keep you <br />
-                            100 percent stylish. Be smart & trendy with us.</p>
-                        <div className='mt-8 md:mt-20'><ExploreCollectionButton /></div>
+        <section className="py-12 md:py-16 lg:py-24">
+            <div className="container mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+                    {/* First row - Text and Baby Collection */}
+                    <div className="bg-[#F1F1F1] p-8 md:p-10 lg:p-12 flex items-center">
+                        <div className="jost-font max-w-lg">
+                            <h3 className="font-bold text-xl md:text-2xl lg:text-3xl text-[#616161]">
+                                BYC Collection 2021
+                            </h3>
+                            <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl mt-2">
+                                BYC Collection
+                            </h2>
+                            <p className="lato-regular text-sm md:text-base text-[#424242] mt-4">
+                                The best everyday option in a Super Saver range within a
+                                reasonable price. It is our responsibility to keep you
+                                100 percent stylish. Be smart & trendy with us.
+                            </p>
+                            <div className="mt-6 md:mt-8 lg:mt-10">
+                                <ExploreCollectionButton />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="aspect-square md:aspect-auto">
+                        <img
+                            src={BabyCollection}
+                            alt="Baby Collection"
+                            className="w-full h-full object-cover"
+                        />
+                    </div>
+
+                    {/* Second row - Women Collection and Men Collection */}
+                    <div className="aspect-square md:aspect-auto">
+                        <img
+                            src={WomenCollection}
+                            alt="Women Collection"
+                            className="w-full h-full object-cover"
+                        />
+                    </div>
+
+                    <div className="aspect-square md:aspect-auto">
+                        <img
+                            src={MenCollection}
+                            alt="Men Collection"
+                            className="w-full h-full object-cover"
+                        />
                     </div>
                 </div>
-                <div className='w-auto md:w-[675.56px] h-auto md:h-[658.12px]'>
-                    <img src={BabyCollection} alt="" className='w-full h-full' />
-                </div>
-                <div className='w-auto md:w-[675.56px] h-auto md:h-[658.12px]'>
-                    <img src={WomenCollection} alt="" className='w-full h-full' />
-                </div>
-                <div className='w-auto md:w-[675.56px] h-auto md:h-[658.12px]'>
-                    <img src={MenCollection} alt="" className='w-full h-full' />
-                </div>
 
+                <div className="flex justify-center mt-8 md:mt-12 lg:mt-16">
+                    <ArrivalsView />
+                </div>
             </div>
-            <div className='flex justify-center mt-16'>
-                <ArrivalsView />
-            </div>
-        </div>
-    )
-}
+        </section>
+    );
+};
 
-export default CollectionSection
+export default CollectionSection;

@@ -1,23 +1,63 @@
-import React from 'react'
+import React from 'react';
 
-export const FilterCategory: React.FC = () => {
+interface FilterCategoryProps {
+    activeCategory: string;
+    activeProductType: string;
+    onCategoryChange: (category: string) => void;
+    onProductTypeChange: (type: string) => void;
+}
+
+export const FilterCategory: React.FC<FilterCategoryProps> = ({
+    activeCategory,
+    activeProductType,
+    onCategoryChange,
+    onProductTypeChange
+}) => {
     return (
-        <div className=' flex flex-col items-center jost-font'>
-            <div className='flex gap-4 md:gap-[34px]  '>
-                <p className='font-normal text-[20px] md:text-[25px]'>For Women</p>
+        <div className='flex flex-col items-center jost-font'>
+            <div className='flex gap-4 lg:gap-[34px]'>
+                <p
+                    className={`font-normal text-[20px] lg:text-[25px] cursor-pointer ${activeCategory === 'women' ? '' : 'text-[#828282]'}`}
+                    onClick={() => onCategoryChange('women')}
+                >
+                    For Women
+                </p>
                 <div>
-                    <p className=' font-normal text-[20px] md:text-[25px] text-[#828282]' >For Men</p>
-                    <div className='border-b w-20 md:w-[88px] mt-[1px] bg-[#212121]'></div>
+                    <p
+                        className={`font-normal text-[20px] lg:text-[25px] cursor-pointer ${activeCategory === 'men' ? '' : 'text-[#828282]'}`}
+                        onClick={() => onCategoryChange('men')}
+                    >
+                        For Men
+                    </p>
+                    {activeCategory === 'men' && (
+                        <div className='border-b w-20 lg:w-[88px] mt-[1px] bg-[#212121]'></div>
+                    )}
                 </div>
-                <p className='font-normal text-[20px] md:text-[25px]'>For Kids</p>
+                <p
+                    className={`font-normal text-[20px] lg:text-[25px] cursor-pointer ${activeCategory === 'kids' ? '' : 'text-[#828282]'}`}
+                    onClick={() => onCategoryChange('kids')}
+                >
+                    For Kids
+                </p>
             </div>
 
-            <div className='flex gap-1 md:gap-2 mt-8'>
-                <p className='bg-[#F5F5F5] font-normal text-[18px] md:text-[20px] py-[14px] px-[24px]'>T-Shirt</p>
-                <p className='bg-[#F5F5F5] font-normal text-[18px] md:text-[20px] py-[14px] px-[24px]'>Singlet</p>
-                <p className='bg-[#D7000F] font-normal text-[18px] md:text-[20px] py-[14px] px-[24px] text-[#F5F5F5]'>Pants</p>
-                <p className='bg-[#F5F5F5] font-normal text-[18px] md:text-[20px] py-[14px] px-[24px]'>Boxers</p>
-            </div>
+
         </div>
-    )
+    );
+};
+
+// For backward compatibility, provide a default export that 
+// uses internal state when no props are provided
+export default function DefaultFilterCategory() {
+    const [activeCategory, setActiveCategory] = React.useState('men');
+    const [activeProductType, setActiveProductType] = React.useState('pants');
+
+    return (
+        <FilterCategory
+            activeCategory={activeCategory}
+            activeProductType={activeProductType}
+            onCategoryChange={setActiveCategory}
+            onProductTypeChange={setActiveProductType}
+        />
+    );
 }

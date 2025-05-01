@@ -21,7 +21,7 @@ const SortDropdown: React.FC = () => {
         <div className="relative inline-block text-left">
             <div
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center border border-gray-300 rounded-md px-3 py-2 cursor-pointer"
+                className="flex items-center border border-gray-300 rounded-lg px-3 py-2 cursor-pointer"
             >
                 <span className="mr-2 text-sm text-gray-700">Sort by</span>
                 <span className="font-medium text-sm">{selectedSort}</span>
@@ -41,7 +41,7 @@ const SortDropdown: React.FC = () => {
 
             {isOpen && (
                 <div
-                    className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10"
+                    className="origin-top-right absolute right-0 mt-2 w-56 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10"
                 >
                     <div
                         className="py-1"

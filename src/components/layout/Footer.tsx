@@ -1,86 +1,113 @@
-import React from 'react'
-import { MasterCard, PayPal, Visa } from '../../assets/images'
-import { Arrow, Mail, Phone, Facebook, Instagram, Twitter, YouTube } from '../../assets/icons'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { MasterCard, PayPal, Visa } from '../../assets/images';
+import { Arrow, Mail, Phone, Facebook, Instagram, Twitter, YouTube } from '../../assets/icons';
 
 const Footer: React.FC = () => {
     return (
-        <div className='w-full bg-[#212121] px-8 md:px-[156px] pt-10 md:pt-[80px] pb-[40px] text-white mt-12 md:mt-[96px]'>
-            <div className='flex flex-col md:flex-row justify-between mr-9'>
-                <div className='flex flex-col md:flex-row gap-10 md:gap-[92px]'>
-                    <div className='jost-font flex flex-col gap-4'>
-                        <h3 className=' capitalize font-bold text-[16px] '>company info</h3>
-                        <div className=' capitalize font-normal text-[12px] flex flex-col gap-4'>
-                            <p>about us</p>
-                            <p>affiliate</p>
-                            <p>fashion blogger</p>
+        <footer className="bg-[#212121] text-white mt-12 md:mt-16 lg:mt-24">
+            <div className="container mx-auto px-4 md:px-6 lg:px-8 pt-10 md:pt-12 lg:pt-16 pb-8">
+                {/* Footer Content */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+                    {/* Company Info */}
+                    <div className="jost-font">
+                        <h3 className="font-bold text-base md:text-lg capitalize mb-4">Company Info</h3>
+                        <ul className="space-y-3">
+                            <li><Link to="/about" className="text-sm hover:text-gray-300 transition-colors capitalize">About Us</Link></li>
+                            <li><Link to="/affiliate" className="text-sm hover:text-gray-300 transition-colors capitalize">Affiliate</Link></li>
+                            <li><Link to="/blog" className="text-sm hover:text-gray-300 transition-colors capitalize">Fashion Blogger</Link></li>
+                        </ul>
+                    </div>
+
+                    {/* Help & Support */}
+                    <div className="jost-font">
+                        <h3 className="font-bold text-base md:text-lg capitalize mb-4">Help & Support</h3>
+                        <ul className="space-y-3">
+                            <li><Link to="/shipping" className="text-sm hover:text-gray-300 transition-colors">Shipping Info</Link></li>
+                            <li><Link to="/refunds" className="text-sm hover:text-gray-300 transition-colors">Refunds</Link></li>
+                            <li><Link to="/how-to-order" className="text-sm hover:text-gray-300 transition-colors">How to Order</Link></li>
+                            <li><Link to="/tracking" className="text-sm hover:text-gray-300 transition-colors">How to Track</Link></li>
+                            <li><Link to="/size-guides" className="text-sm hover:text-gray-300 transition-colors">Size Guides</Link></li>
+                        </ul>
+                    </div>
+
+                    {/* Customer Service */}
+                    <div className="jost-font">
+                        <h3 className="font-bold text-base md:text-lg capitalize mb-4">Customer Service</h3>
+                        <ul className="space-y-3 mb-4">
+                            <li><Link to="/contact" className="text-sm hover:text-gray-300 transition-colors capitalize">Contact Us</Link></li>
+                            <li><Link to="/payment" className="text-sm hover:text-gray-300 transition-colors capitalize">Payment Methods</Link></li>
+                        </ul>
+
+                        {/* Payment Methods */}
+                        <div className="flex items-center space-x-4 mt-2">
+                            <img src={PayPal} alt="PayPal" className="h-5 w-auto" />
+                            <img src={Visa} alt="Visa" className="h-5 w-auto" />
+                            <img src={MasterCard} alt="MasterCard" className="h-5 w-auto" />
                         </div>
                     </div>
-                    <div className='jost-font flex flex-col gap-4'>
-                        <h3 className=' capitalize font-bold text-[16px] '>help & support</h3>
-                        <div className=' font-normal text-[12px] flex flex-col gap-4'>
-                            <p>Shipping Info</p>
-                            <p>Refunds</p>
-                            <p>How to Order</p>
-                            <p>How to Track</p>
-                            <p>Size Guides</p>
-                        </div>
-                    </div>
-                    <div className='jost-font flex flex-col gap-4'>
-                        <h3 className=' capitalize font-bold text-[16px] '>company info</h3>
-                        <div className=' capitalize font-normal text-[12px] flex flex-col gap-4'>
-                            <p>contact us</p>
-                            <p>payment methods</p>
-                        </div>
-                        <div className='flex gap-6'>
-                            <img src={PayPal} alt="" className='w-[53.33px] h-[20px]' />
-                            <img src={Visa} alt="" className='w-[43.33px] h-[20px]' />
-                            <img src={MasterCard} alt="" className='w-[30px] h-[20px]' />
-                        </div>
-                    </div>
-                </div>
-                <div className=' flex flex-col gap-[36.54px]'>
-                    <div className='jost-font flex flex-col gap-4'>
-                        <h3 className='capitalize font-bold mt-4 md:mt-0 text-[16px]'>signup for the latest news</h3>
-                        <form action="" className='border border-white w-[272.67px] flex justify-between items-center p-2 font-normal text-[12px]'>
-                            <input type="email" placeholder='antonie@gmail.com' className='outline-none bg-transparent w-full mr-4 ' />
-                            <button>
-                                <img src={Arrow} alt="" />
+
+                    {/* Newsletter & Contact */}
+                    <div className="jost-font">
+                        <h3 className="font-bold text-base md:text-lg capitalize mb-4">Signup for the latest news</h3>
+
+                        {/* Newsletter Form */}
+                        <form className="flex items-center mb-6 border border-white overflow-hidden group focus-within:border-gray-300 transition-colors">
+                            <input
+                                type="email"
+                                placeholder="your@email.com"
+                                className="bg-transparent text-white py-2 px-3 outline-none flex-grow text-sm w-full"
+                                aria-label="Email address for newsletter"
+                            />
+                            <button
+                                type="submit"
+                                className="bg-transparent p-2 text-white hover:bg-white hover:text-[#212121] transition-colors"
+                                aria-label="Subscribe to newsletter"
+                            >
+                                <img src={Arrow} alt="Subscribe" className="w-4 h-4" />
                             </button>
                         </form>
-                    </div>
-                    <div className='jost-font flex flex-col gap-3 font-normal text-[12px]'>
-                        <a href='/' className='flex gap-1 items-center'>
-                            <img src={Mail} alt="" />
-                            <p>bycafrica@gmail.com</p>
-                        </a>
-                        <a href='/' className='flex gap-1 items-center'>
-                            <img src={Phone} alt="" />
-                            <p>+2348101375376; +2349053403403 </p>
-                        </a>
+
+                        {/* Contact Info */}
+                        <div className="space-y-3">
+                            <a href="mailto:bycafrica@gmail.com" className="flex items-center text-sm hover:text-gray-300 transition-colors">
+                                <img src={Mail} alt="Email" className="mr-2 w-4 h-4" />
+                                <span>bycafrica@gmail.com</span>
+                            </a>
+                            <a href="tel:+2348101375376" className="flex items-center text-sm hover:text-gray-300 transition-colors">
+                                <img src={Phone} alt="Phone" className="mr-2 w-4 h-4" />
+                                <span>+2348101375376; +2349053403403</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className='flex items-center justify-center gap-2 md:gap-6 mt-10'>
-                <a href="/">
-                    <img src={Facebook} alt="" />
-                </a>
-                <a href="/">
-                    <img src={Instagram} alt="" />
-                </a>
-                <a href="/">
-                    <img src={Twitter} alt="" />
-                </a>
-                <a href="/">
-                    <img src={YouTube} alt="" />
-                </a>
-            </div>
-            <div className=' border-2 border-white my-4'></div>
-            <div className=' text-center'>
-                <p className='jost-font font-normal text-[12px]'>All rights Reserved  copyright bycafrica 2021.</p>
-            </div>
 
-        </div >
-    )
-}
+                {/* Social Media Links */}
+                <div className="flex justify-center space-x-6 mt-10 md:mt-12">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity" aria-label="Facebook">
+                        <img src={Facebook} alt="Facebook" className="w-6 h-6" />
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity" aria-label="Instagram">
+                        <img src={Instagram} alt="Instagram" className="w-6 h-6" />
+                    </a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity" aria-label="Twitter">
+                        <img src={Twitter} alt="Twitter" className="w-6 h-6" />
+                    </a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity" aria-label="YouTube">
+                        <img src={YouTube} alt="YouTube" className="w-6 h-6" />
+                    </a>
+                </div>
 
-export default Footer
+                {/* Divider */}
+                <div className="h-px bg-white my-6 md:my-8 opacity-50"></div>
+
+                {/* Copyright */}
+                <div className="text-center">
+                    <p className="jost-font text-sm">All rights Reserved © copyright bycafrica 2021.</p>
+                </div>
+            </div>
+        </footer>
+    );
+};
+
+export default Footer;
