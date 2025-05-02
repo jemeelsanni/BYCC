@@ -4,7 +4,7 @@ import axios from 'axios';
 const isDevelopment = process.env.NODE_ENV === 'development';
 const baseURL = isDevelopment
   ? 'http://localhost:3002/api/byc' // Local backend during development
-  : 'https://byc-backend-tt0z.onrender.com/'; // Render backend URL
+  : 'https://byc-backend-tt0z.onrender.com/api/byc'; // Render backend URL
 
 const apiClient = axios.create({
   baseURL,
