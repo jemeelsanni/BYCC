@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Determine base URL based on environment
-const isDevelopment = process.env.NODE_ENV === 'development';
+const isDevelopment = import.meta.env.NODE_ENV === 'development';
 const baseURL = isDevelopment
   ? 'http://localhost:3002/api/byc' // Local backend during development
   : 'https://byc-backend-tt0z.onrender.com/api/byc'; // Render backend URL
