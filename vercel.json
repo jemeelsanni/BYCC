@@ -2,7 +2,16 @@
     "rewrites": [
       { "source": "/(.*)", "destination": "/index.html" }
     ],
-    "routes": [
-      { "src": "/[^.]+", "dest": "/", "status": 200 }
-    ]
+   "routes": [
+    {
+      "src": "/login",
+      "dest": "/index.html",
+      "status": 200
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html",
+      "status": 200
+    }
+  ]
   }
