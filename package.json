@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "prebuild": "npm run type-check",
     "build": "vite build",
-    "test": "vitest"
+    "test": "vitest",
+    "type-check": "tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
     "@emotion/babel-plugin": "^11.13.5",
