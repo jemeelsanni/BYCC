@@ -1,10 +1,12 @@
 import axios from 'axios';
 
 // Determine base URL based on environment
-const isDevelopment = import.meta.env.NODE_ENV === 'development';
-const baseURL = isDevelopment
-  ? 'http://localhost:3002/api/byc' // Local backend during development
-  : 'https://byc-backend-tt0z.onrender.com/api/byc'; // Render backend URL
+// const isDevelopment = import.meta.env.NODE_ENV === 'development';
+// const baseURL = isDevelopment
+//   ? 'http://localhost:3002/api/byc' // Local backend during development
+//   : 'https://byc-backend-tt0z.onrender.com/api/byc'; // Render backend URL
+
+const baseURL = 'https://byc-backend-tt0z.onrender.com/api/byc'; // Render backend URL
 
 const apiClient = axios.create({
   baseURL,
