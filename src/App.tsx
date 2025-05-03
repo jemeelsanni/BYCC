@@ -34,7 +34,7 @@ const App: React.FC = () => {
 
 
 
-      <Route path="/order-confirmation/:id"
+      <Route path="/order-confirmation"
         element={
           <ProtectedRoute >
             <OrderConfirmation />
