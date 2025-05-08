@@ -287,7 +287,7 @@ const Checkout: React.FC = () => {
                 <div className='w-full border-b-2 border-[#F1EEEE] mt-6 md:mt-[44px]'></div>
 
                 {/* Checkout content area - Mobile conditional display, Desktop always show */}
-                <div className='mt-6 lg:mt-[60px]'>
+                <div className='mt-6'>
                     <div className={`${activeTab === 'shipping' ? 'block' : 'hidden md:block'} w-full lg:w-[50%] mb-8 md:mb-0`}>
                         <CheckoutForm />
                     </div>

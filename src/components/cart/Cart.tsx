@@ -20,7 +20,7 @@ const Cart: React.FC = () => {
             window.removeEventListener('storage', loadCart);
             window.removeEventListener('cart-updated', loadCart);
         };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const loadCart = () => {
@@ -176,12 +176,13 @@ const Cart: React.FC = () => {
                                                     />
                                                 </div>
                                                 <div className="flex flex-col">
-                                                    <h3 className="font-bold text-lg">{item.name || "Product Name"}</h3>
+                                                    <h3 className="font-bold text-lg lg:text-2xl manrope-font">{item.name || "Product Name"}</h3>
+                                                    {item.code && (
+                                                        <p className="font-bold text-lg lg:text-2xl mt-2  manrope-font">{item.code}</p>
+                                                    )}
                                                     <p className="text-gray-600 text-sm mt-1">{item.info || "Product Description"}</p>
 
-                                                    {item.code && (
-                                                        <p className="text-gray-500 text-xs mt-2">SKU: {item.code}</p>
-                                                    )}
+
 
                                                     <div className="mt-2 flex gap-4">
                                                         {item.size && (
@@ -306,7 +307,7 @@ const Cart: React.FC = () => {
                                                         <div className="flex items-center border border-gray-300 rounded-md">
                                                             <button
                                                                 onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
-                                                                className="w-8 h-8 flex items-center justify-center text-gray-600"
+                                                                className="w-8 md:w-[41.33px] h-8 md:h-[34px] flex items-center justify-center text-gray-600"
                                                                 aria-label="Decrease quantity"
                                                             >
                                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -327,7 +328,7 @@ const Cart: React.FC = () => {
                                                             />
                                                             <button
                                                                 onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
-                                                                className="w-8 h-8 flex items-center justify-center text-gray-600"
+                                                                className="w-8 md:w-[41.33px] h-8 md:h-[34px] flex items-center justify-center text-gray-600"
                                                                 aria-label="Increase quantity"
                                                             >
                                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -344,7 +345,7 @@ const Cart: React.FC = () => {
                                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a1 1 0 000 1.414l4.243 4.243a1 1 0 001.414 0l4.243-4.243a1 1 0 000-1.414 1 1 0 00-1.414 0L8 10.586l-3.293-3.293a1 1 0 00-1.414 0z" />
                                                         </svg>
-                                                        Save for later
+                                                        Wishlist
                                                     </button>
                                                 </div>
                                             </div>
@@ -359,7 +360,7 @@ const Cart: React.FC = () => {
                         <div className="border-t border-gray-200">
                             <div className="p-4 md:p-6">
                                 <div className="max-w-md ml-auto">
-                                    <h2 className="font-bold text-lg md:text-xl mb-4">Order Summary</h2>
+                                    <h2 className="font-bold text-lg md:text-xl mb-4 capitalize">cart totals</h2>
 
                                     <div className="space-y-2 mb-4">
                                         <div className="flex justify-between">
