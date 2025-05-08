@@ -56,7 +56,7 @@ const BlogCard: React.FC = () => {
                 {articles.map((article) => (
                     <div key={article._id} className="flex flex-col bg-white shadow-lg overflow-hidden">
                         {/* Article Image */}
-                        <div className="aspect-video">
+                        <div className="aspect-video w-[446.13px] h-[446.13px]">
                             <img
                                 src={article.imageUrl}
                                 alt={article.title}

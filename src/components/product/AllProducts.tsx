@@ -9,8 +9,6 @@ import { getProducts, getProductsByCategory } from '../../api/products';
 import { ChevronDown, Filter } from 'lucide-react';
 import { CartItem, PaginationData, Product } from '../../types';
 
-
-
 const AllProducts: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [products, setProducts] = useState<Product[]>([]);

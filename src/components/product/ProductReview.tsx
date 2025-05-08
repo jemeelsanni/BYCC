@@ -10,7 +10,6 @@ import {
     ReviewInput
 } from '../../api/reviews';
 
-// Define an error interface to use instead of 'any'
 interface ApiError {
     message?: string;
     response?: {

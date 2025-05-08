@@ -9,24 +9,7 @@ import { deleteProduct, getProduct } from '../../api/products'; // Import the AP
 import Modal from '../ui/Modal';
 import { useAuth } from '../../contexts/AuthContext';
 import { Archive, Edit } from 'lucide-react';
-
-// Define the Product interface with rating fields
-interface Product {
-    _id: string;
-    productName: string;
-    productNumber: string;
-    productPrice: string;
-    productStock: number;
-    productInfo: string;
-    productImage: string[];
-    productDescription: string;
-    category: {
-        _id: string;
-        name: string;
-    };
-    averageRating?: number;
-    reviewCount?: number;
-}
+import { Product } from '@/types';
 
 const ProductPreview: React.FC = () => {
     const { id } = useParams<{ id: string }>();

@@ -36,6 +36,7 @@ export interface DashboardStats {
     country: string;
     city: string;
     state: string;
+    company?: string;
     [key: string]: unknown;
   }
   

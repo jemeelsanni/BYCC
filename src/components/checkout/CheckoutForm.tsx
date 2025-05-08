@@ -1,43 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { updateUserProfile } from '../../api/auth';
-
-// Add interface for User type
-interface User {
-    id: string;
-    firstName?: string;
-    lastName?: string;
-    email?: string;
-    phone?: string;
-    company?: string;
-    country?: string;
-    city?: string;
-    state?: string;
-    province?: string;
-}
-
-interface AuthContextType {
-    user: User | null;
-    loading: boolean;
-}
-
-interface FormData {
-    fullName: string;
-    company: string;
-    country: string;
-    city: string;
-    state: string;
-    province: string;
-    phone: string;
-    email: string;
-}
-
-interface FormErrors {
-    fullName?: string;
-    phone?: string;
-    email?: string;
-    country?: string;
-}
+import { AuthContextType, FormErrors } from '@/types';
+import { FormData } from '@/types';
 
 const CheckoutForm: React.FC = () => {
     // Type assertion for useAuth to use our defined type

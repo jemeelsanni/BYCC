@@ -3,20 +3,9 @@ import { BlueBoxers, Decrease, Increase } from '../../assets/images';
 import { Like, Delete } from "../../assets/icons";
 import { RecentlyViewed } from '../product';
 import { Link } from 'react-router-dom';
+import { CartItem } from '@/types';
 
 const Cart: React.FC = () => {
-    interface CartItem {
-        id: string;
-        name: string;
-        info?: string;
-        code?: string;
-        image?: string;
-        price: number;
-        quantity: number;
-        size?: string;
-        color?: string;
-    }
-
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
     const [subtotal, setSubtotal] = useState<number>(0);
     const [total, setTotal] = useState<number>(0);
@@ -31,6 +20,7 @@ const Cart: React.FC = () => {
             window.removeEventListener('storage', loadCart);
             window.removeEventListener('cart-updated', loadCart);
         };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const loadCart = () => {

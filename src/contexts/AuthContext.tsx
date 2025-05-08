@@ -1,39 +1,8 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import { login as apiLogin, register as apiRegister, getCurrentUser } from '../api/auth';
-import { jwtDecode } from "jwt-decode"; // Correct import for jwt-decode v4
-
-interface DecodedToken {
-    userId: string;
-    isAdmin: boolean;
-    iat: number;
-    exp: number;
-}
-
-interface User {
-    id: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    isAdmin: boolean;
-}
-
-interface LoginResponse {
-    token: string;
-    user: User;
-}
-
-interface AuthContextType {
-    user: User | null;
-    loading: boolean;
-    login: (email: string, password: string) => Promise<void>;
-    logout: () => void;
-    register: (firstName: string, lastName: string, email: string, password: string) => Promise<void>;
-    isAuthenticated: boolean;
-    isAdmin: boolean;
-    savedLocation: string | null;
-    saveLocation: (path: string) => void;
-    loginWithRedirect: () => void;
-}
+import { jwtDecode } from "jwt-decode";
+import { AuthContextType, DecodedToken, LoginResponse, User } from '@/types';
 
 export const AuthContext = createContext<AuthContextType>({
     user: null,

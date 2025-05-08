@@ -10,12 +10,10 @@ const Wishlist: React.FC = () => {
     const [wishlistItems, setWishlistItems] = useState<CartItem[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
-    // Load wishlist from localStorage
     useEffect(() => {
         loadWishlist();
         setIsLoading(false);
 
-        // Listen for wishlist updates
         window.addEventListener('wishlist-updated', loadWishlist);
 
         return () => {
@@ -31,30 +29,24 @@ const Wishlist: React.FC = () => {
                 const parsedWishlist = JSON.parse(savedWishlist);
 
                 if (Array.isArray(parsedWishlist)) {
-                    // Filter out invalid wishlist items
                     const validItems = parsedWishlist.filter(item =>
                         item &&
                         item.id &&
                         item.name &&
                         item.price &&
-                        // Make sure price is a valid number greater than 0
                         (typeof item.price === 'number' ? item.price > 0 :
                             typeof item.price === 'string' ? parseFloat(item.price) > 0 : false)
                     );
 
-                    // Only set the state when we have valid data
                     setWishlistItems(validItems);
 
-                    // If we filtered out some items, update localStorage to match
                     if (validItems.length !== parsedWishlist.length) {
                         localStorage.setItem('wishlist', JSON.stringify(validItems));
-                        // Dispatch event for components that listen to wishlist changes
                         window.dispatchEvent(new CustomEvent('wishlist-updated'));
                     }
                 } else {
                     console.error("Invalid wishlist format:", parsedWishlist);
                     setWishlistItems([]);
-                    // Clear invalid wishlist
                     localStorage.setItem('wishlist', JSON.stringify([]));
                     window.dispatchEvent(new CustomEvent('wishlist-updated'));
                 }
@@ -72,26 +64,19 @@ const Wishlist: React.FC = () => {
 
     const removeFromWishlist = (id: string) => {
         try {
-            // Get current wishlist
             const savedWishlist = localStorage.getItem('wishlist');
 
             if (savedWishlist) {
-                // Parse the wishlist
                 const wishlistItems = JSON.parse(savedWishlist);
 
-                // Filter out the item with the matching id
                 const updatedWishlist = wishlistItems.filter((item: CartItem) => item.id !== id);
 
-                // Save the updated wishlist back to localStorage
                 localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
 
-                // Update state with the filtered wishlist
                 setWishlistItems(updatedWishlist);
 
-                // Show removal notification
                 showNotification(`Item removed from wishlist`);
 
-                // Dispatch event for components that listen to wishlist changes
                 window.dispatchEvent(new CustomEvent('wishlist-updated'));
             }
         } catch (e) {

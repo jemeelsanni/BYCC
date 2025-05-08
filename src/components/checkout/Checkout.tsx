@@ -1,34 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import CheckoutForm from './CheckoutForm';
 import { Link, useNavigate } from 'react-router-dom';
 import { Flutterwave } from '../../assets/images';
 import { useAuth } from '../../contexts/AuthContext';
 import { createOrder, redirectToStripeCheckout, OrderResponse } from '../../api/orders';
-
-interface CartItem {
-    id: string;
-    name: string;
-    info?: string;
-    code?: string;
-    image?: string;
-    price: number | string;
-    quantity: number;
-    size?: string;
-    color?: string;
-}
-
-interface ShippingAddress {
-    fullName: string;
-    company: string;
-    country: string;
-    city: string;
-    streetAddress: string;
-    state: string;
-    postalCode: string;
-    phone: string;
-    province: string;
-    email: string;
-}
+import { CartItem, ShippingAddress } from '@/types';
 
 const Checkout: React.FC = () => {
     const [selectedMethod, setSelectedMethod] = useState<'bank' | 'online'>('bank');

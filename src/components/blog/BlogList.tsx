@@ -70,12 +70,6 @@ const BlogList: React.FC = () => {
                     <div className="text-center py-12 max-w-md">
                         <h2 className="text-2xl font-semibold mb-4">No Articles Found</h2>
                         <p className="text-gray-600 mb-6">Be the first to share your thoughts with the BYC community.</p>
-                        <Link
-                            to="/blog/create"
-                            className="inline-block px-6 py-3 bg-[#BD3A3A] text-white font-medium rounded-lg hover:bg-[#a93434] transition-colors"
-                        >
-                            Create Your First Article
-                        </Link>
                     </div>
                 </div>
                 <Footer />

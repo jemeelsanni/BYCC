@@ -4,8 +4,8 @@
 // User types
 export interface User {
     lastLogin: any;
-    isAdmin: any;
-    createdAt: any
+    isAdmin: boolean;
+    createdAt: any;
     _id: string;
     id: string;
     firstName: string;
@@ -18,6 +18,31 @@ export interface User {
     city?: string;
     state?: string;
     province?: string;
+  }
+  export interface LoginResponse {
+    token: string;
+    user: User;
+}
+
+export interface DecodedToken {
+  userId: string;
+  isAdmin: boolean;
+  iat: number;
+  exp: number;
+}
+
+
+  export interface AuthContextType {
+      user: User | null;
+      loading: boolean;
+      login: (email: string, password: string) => Promise<void>;
+      logout: () => void;
+      register: (firstName: string, lastName: string, email: string, password: string) => Promise<void>;
+      isAuthenticated: boolean;
+      isAdmin: boolean;
+      savedLocation: string | null;
+      saveLocation: (path: string) => void;
+      loginWithRedirect: () => void;
   }
   
   export interface UserRegistrationData {
@@ -36,9 +61,24 @@ export interface User {
     token: string;
     user: User;
   }
-  
-  // Product types
-  
+ 
+  export interface FormData {
+    fullName: string;
+    company: string;
+    country: string;
+    city: string;
+    state: string;
+    province: string;
+    phone: string;
+    email: string;
+}
+
+export interface FormErrors {
+  fullName?: string;
+  phone?: string;
+  email?: string;
+  country?: string;
+}
   
   // Cart types
   export interface CartItem {
@@ -52,6 +92,8 @@ export interface User {
     size?: string;
     color?: string;
   }
+
+  
   
   // Order types
   export interface ShippingAddress {
