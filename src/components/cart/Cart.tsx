@@ -227,7 +227,7 @@ const Cart: React.FC = () => {
                                                         className="px-2 py-1 text-gray-600 hover:bg-gray-100 transition-colors"
                                                         aria-label="Decrease quantity"
                                                     >
-                                                        <img src={Decrease} alt="Decrease" className="w-5 h-5" />
+                                                        <img src={Decrease} alt="Decrease" className="w-5 h-5 md:w-[41.33px] md:h-[41.33px]" />
                                                     </button>
                                                     <input
                                                         type="text"
@@ -238,7 +238,7 @@ const Cart: React.FC = () => {
                                                                 handleQuantityChange(item.id, value);
                                                             }
                                                         }}
-                                                        className="w-12 h-10 text-center outline-none manrope-font font-medium text-lg"
+                                                        className="w-12 h-10 md:w-[41.33px] md:h-[41.33px] text-center outline-none manrope-font font-medium text-lg"
                                                         aria-label="Quantity"
                                                     />
                                                     <button
@@ -246,7 +246,7 @@ const Cart: React.FC = () => {
                                                         className="px-2 py-1 text-gray-600 hover:bg-gray-100 transition-colors"
                                                         aria-label="Increase quantity"
                                                     >
-                                                        <img src={Increase} alt="Increase" className="w-5 h-5" />
+                                                        <img src={Increase} alt="Increase" className="w-5 md:w-[41.33px] h-5 md:h-[41.33px]" />
                                                     </button>
                                                 </div>
                                             </div>
