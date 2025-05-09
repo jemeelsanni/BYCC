@@ -166,9 +166,9 @@ const Cart: React.FC = () => {
                             <>
                                 {cartItems.map((item, index) => (
                                     <div key={index} className="p-4 md:p-6">
-                                        <div className="hidden lg:grid grid-cols-5 gap-6 items-center">
+                                        <div className="hidden lg:grid grid-cols-5 gap-6 items-center manrope-font">
                                             <div className="col-span-3 flex gap-6">
-                                                <div className="w-32 h-32 flex-shrink-0 overflow-hidden rounded-md">
+                                                <div className="w-32 lg:w-[207px] h-32 lg:h-[182px] flex-shrink-0 overflow-hidden rounded-md">
                                                     <img
                                                         src={getImageUrl(item.image)}
                                                         alt={item.name || "Product"}
@@ -204,14 +204,14 @@ const Cart: React.FC = () => {
                                                     <div className="flex gap-4 mt-4">
                                                         <button
                                                             onClick={() => addToWishlist(item)}
-                                                            className="flex items-center text-sm border border-[#BD3A3A] text-[#BD3A3A] rounded-md px-3 py-1 hover:bg-red-50 transition-colors"
+                                                            className="flex items-center text-sm border border-[#BD3A3A] text-[#BD3A3A] rounded-md px-3 lg:px-16 py-1 lg:py-4 hover:bg-red-50 transition-colors"
                                                         >
                                                             <img src={Like} alt="" className="h-4 w-4 mr-1" />
-                                                            Save for later
+                                                            Wishlist
                                                         </button>
                                                         <button
                                                             onClick={() => removeItem(item.id)}
-                                                            className="flex items-center text-sm text-gray-600 hover:text-red-600 transition-colors"
+                                                            className="flex items-center text-sm text-white transition-colors rounded-md px-3 lg:px-16 py-1 lg:py-4 bg-[#BD3A3A]"
                                                         >
                                                             <img src={Delete} alt="" className="h-4 w-4 mr-1" />
                                                             Remove
@@ -221,7 +221,7 @@ const Cart: React.FC = () => {
                                             </div>
 
                                             <div className="flex items-center justify-center">
-                                                <div className="flex items-center border border-gray-300 rounded-md">
+                                                <div className="flex items-center rounded-md">
                                                     <button
                                                         onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
                                                         className="px-2 py-1 text-gray-600 hover:bg-gray-100 transition-colors"
